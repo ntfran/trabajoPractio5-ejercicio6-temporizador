@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
+@keyframes parpadeo {
+  0%, 100% { outline: none; }
+  50% { outline: 4px solid red; }
+}
+
+
+
 body {
   font-family: "Oswald", sans-serif;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -45,6 +52,10 @@ body {
   min-width: 70px;
   font-weight: 400;
   letter-spacing: 0.5px;
+}
+
+.alerta {
+  animation: parpadeo 0.5s infinite;
 }
 
 @media (min-width: 768px) {

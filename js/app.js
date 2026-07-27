@@ -31,6 +31,9 @@ function Temporizador() {
     btnReiniciar.disabled = false;
     btnIniciar.disabled = true;
     sonidoFin.play();
+    card.classList.remove("border-5", "border-success", "border-warning")
+    card.classList.add("alerta");
+
     return;
   }
 
@@ -64,7 +67,12 @@ btnReiniciar.addEventListener("click", () => {
   btnIniciar.disabled = true;
   sonidoFin.pause();
   sonidoFin.currentTime = 0;
-  card.classList.remove("border-3", "border-warning", "border-success");
+  card.classList.remove(
+    "border-3",
+    "border-warning",
+    "border-success",
+    "alerta",
+  );
 });
 
 botonesPreset.forEach((boton) => {
