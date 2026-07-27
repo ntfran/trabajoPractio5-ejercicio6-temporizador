@@ -4,9 +4,9 @@ const btnIniciar = document.getElementById("btnIniciar");
 const btnPausar = document.getElementById("btnPausar");
 const btnReiniciar = document.getElementById("btnReiniciar");
 const card = document.getElementById("card");
+const botonesPreset = document.querySelectorAll(".btn-preset");
 
-function actualizarCronometro() {
-  segundosTotales++;
+function renderizarTimpo() {
   const horasFormato = String(Math.floor(segundosTotales / 3600)).padStart(
     2,
     "0",
@@ -21,6 +21,12 @@ function actualizarCronometro() {
   document.getElementById("minutos").textContent = minutosFormato;
   document.getElementById("segundos").textContent = segundosFormato;
 }
+
+function actualizarCronometro() {
+  segundosTotales++;
+  renderizarTimpo();
+}
+
 btnIniciar.addEventListener("click", () => {
   if (intervalo === null) {
     intervalo = setInterval(actualizarCronometro, 1000);
@@ -41,10 +47,16 @@ btnReiniciar.addEventListener("click", () => {
   clearInterval(intervalo);
   intervalo = null;
   segundosTotales = 0;
-  document.getElementById("horas").textContent = "00";
-  document.getElementById("minutos").textContent = "00";
-  document.getElementById("segundos").textContent = "00";
+  renderizarTimpo();
   btnPausar.disabled = true;
   btnReiniciar.disabled = true;
   card.classList.remove("border-3", "border-warning", "border-success");
+});
+
+botonesPreset.forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const segundos = parseInt(boton.dataset.segundos);
+    segundosTotales += segundos;
+    renderizarTimpo();
+  });
 });
