@@ -7,7 +7,7 @@ const card = document.getElementById("card");
 const botonesPreset = document.querySelectorAll(".btn-preset");
 const sonidoFin = document.getElementById("sonidoFin");
 
-function renderizarTimpo() {
+function renderizarTiempo() {
   const horasFormato = String(Math.floor(segundosTotales / 3600)).padStart(
     2,
     "0",
@@ -38,7 +38,7 @@ function Temporizador() {
   }
 
   segundosTotales--;
-  renderizarTimpo();
+  renderizarTiempo();
 }
 
 btnIniciar.addEventListener("click", () => {
@@ -61,7 +61,7 @@ btnReiniciar.addEventListener("click", () => {
   clearInterval(intervalo);
   intervalo = null;
   segundosTotales = 0;
-  renderizarTimpo();
+  renderizarTiempo();
   btnPausar.disabled = true;
   btnReiniciar.disabled = true;
   btnIniciar.disabled = true;
@@ -79,7 +79,7 @@ botonesPreset.forEach((boton) => {
   boton.addEventListener("click", () => {
     const segundos = parseInt(boton.dataset.segundos);
     segundosTotales += segundos;
-    renderizarTimpo();
+    renderizarTiempo();
     btnIniciar.disabled = false;
   });
 });
