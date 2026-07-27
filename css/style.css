@@ -41,6 +41,12 @@ body {
   color: #ffffff;
 }
 
+.btn-preset {
+  min-width: 70px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
 @media (min-width: 768px) {
   .contenedor-reloj {
     max-width: 650px;
@@ -56,5 +62,10 @@ body {
 
   .separador {
     font-size: 3.5rem;
+  }
+
+  .btn-preset {
+    min-width: 85px;
+    font-size: 0.95rem;
   }
 }
