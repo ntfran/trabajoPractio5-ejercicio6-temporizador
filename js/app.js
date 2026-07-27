@@ -23,7 +23,7 @@ function renderizarTiempo() {
   document.getElementById("segundos").textContent = segundosFormato;
 }
 
-function Temporizador() {
+function temporizador() {
   if (segundosTotales === 0) {
     clearInterval(intervalo);
     intervalo = null;
@@ -43,7 +43,7 @@ function Temporizador() {
 
 btnIniciar.addEventListener("click", () => {
   if (intervalo === null) {
-    intervalo = setInterval(Temporizador, 1000);
+    intervalo = setInterval(temporizador, 1000);
     btnPausar.disabled = false;
     btnReiniciar.disabled = false;
     card.classList.remove("border-warning");
