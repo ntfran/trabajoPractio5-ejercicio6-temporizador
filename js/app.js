@@ -5,6 +5,7 @@ const btnPausar = document.getElementById("btnPausar");
 const btnReiniciar = document.getElementById("btnReiniciar");
 const card = document.getElementById("card");
 const botonesPreset = document.querySelectorAll(".btn-preset");
+const sonidoFin = document.getElementById("sonidoFin");
 
 function renderizarTimpo() {
   const horasFormato = String(Math.floor(segundosTotales / 3600)).padStart(
@@ -25,6 +26,11 @@ function renderizarTimpo() {
 function Temporizador() {
   if (segundosTotales === 0) {
     clearInterval(intervalo);
+    intervalo = null;
+    btnPausar.disabled = true;
+    btnReiniciar.disabled = false;
+    btnIniciar.disabled = true;
+    sonidoFin.play();
     return;
   }
 
@@ -56,7 +62,8 @@ btnReiniciar.addEventListener("click", () => {
   btnPausar.disabled = true;
   btnReiniciar.disabled = true;
   btnIniciar.disabled = true;
-  
+  sonidoFin.pause();
+  sonidoFin.currentTime = 0;
   card.classList.remove("border-3", "border-warning", "border-success");
 });
 
