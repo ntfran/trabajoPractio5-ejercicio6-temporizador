@@ -22,14 +22,19 @@ function renderizarTimpo() {
   document.getElementById("segundos").textContent = segundosFormato;
 }
 
-function actualizarCronometro() {
-  segundosTotales++;
+function Temporizador() {
+  if (segundosTotales === 0) {
+    clearInterval(intervalo);
+    return;
+  }
+
+  segundosTotales--;
   renderizarTimpo();
 }
 
 btnIniciar.addEventListener("click", () => {
   if (intervalo === null) {
-    intervalo = setInterval(actualizarCronometro, 1000);
+    intervalo = setInterval(Temporizador, 1000);
     btnPausar.disabled = false;
     btnReiniciar.disabled = false;
     card.classList.remove("border-warning");
@@ -50,6 +55,8 @@ btnReiniciar.addEventListener("click", () => {
   renderizarTimpo();
   btnPausar.disabled = true;
   btnReiniciar.disabled = true;
+  btnIniciar.disabled = true;
+  
   card.classList.remove("border-3", "border-warning", "border-success");
 });
 
@@ -58,5 +65,6 @@ botonesPreset.forEach((boton) => {
     const segundos = parseInt(boton.dataset.segundos);
     segundosTotales += segundos;
     renderizarTimpo();
+    btnIniciar.disabled = false;
   });
 });
