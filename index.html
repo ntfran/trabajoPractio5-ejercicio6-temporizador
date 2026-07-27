@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejercicio 5 - Cronómetro</title>
+    <title>Ejercicio 5 - Temporizador</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,7 +15,7 @@
   >
     <main class="card contenedor-reloj shadow-lg text-center" id="card">
       <header class="seccion-fecha p-3 border-bottom border-dark-subtle">
-        <h1 class="h5 m-0 text-uppercase fw-bold">Cronómetro</h1>
+        <h1 class="h5 m-0 text-uppercase fw-bold">Temporizador</h1>
       </header>
 
       <section
@@ -29,7 +29,49 @@
           <span id="segundos">00</span>
         </div>
       </section>
-
+      <section class="seccion-presets px-3 pb-3">
+        <p class="text-secondary small mb-2 text-uppercase font-monospace fs-7">
+          Agregar tiempo
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <button
+            class="btn btn-outline-info btn-sm btn-preset"
+            data-segundos="10"
+          >
+            +10 seg
+          </button>
+          <button
+            class="btn btn-outline-info btn-sm btn-preset"
+            data-segundos="60"
+          >
+            +1 min
+          </button>
+          <button
+            class="btn btn-outline-info btn-sm btn-preset"
+            data-segundos="300"
+          >
+            +5 min
+          </button>
+          <button
+            class="btn btn-outline-info btn-sm btn-preset"
+            data-segundos="600"
+          >
+            +10 min
+          </button>
+          <button
+            class="btn btn-outline-info btn-sm btn-preset"
+            data-segundos="1800"
+          >
+            +30 min
+          </button>
+          <button
+            class="btn btn-outline-info btn-sm btn-preset"
+            data-segundos="3600"
+          >
+            +1 hs
+          </button>
+        </div>
+      </section>
       <footer
         class="p-3 border-top border-dark-subtle d-flex justify-content-center gap-2"
       >
